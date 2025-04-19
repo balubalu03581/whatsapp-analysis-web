@@ -52,17 +52,18 @@ body {
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
+    transition: background-color 0.3s linear;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
   
   .file-upload-label:hover {
-    background-color: #45a049;
+    background: linear-gradient(135deg, #84e87f, #66bb6a); /* two green shades */
   }
   
   /* styles.css or App.css */
 .containers {
-    background: linear-gradient(to right, #f1eeeeb4, #aba9a9);
+  background: linear-gradient(to right, #bee0f0b4, #eb7a7ad4);
   border-radius: 1rem;
   padding: 1.5rem;
   margin-bottom: 2rem;
