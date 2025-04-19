@@ -12,8 +12,6 @@ const upload = multer({ dest: 'uploads/' });
 app.use(cors());
 app.use(express.json());
 
-console.log('req.file: =========>', req.file); // 👀 check if it's undefined
-console.log('req.body: ==========>', req.body); // useful for debugging other fields
 
 
 app.post('/upload', upload.single('chat'), async (req, res) => {
