@@ -6,7 +6,7 @@ const path = require('path');
 const { parseChat } = require('./chatProcessor');
 
 const app = express();
-const PORT = 5005;
+const PORT = 10000;
 const upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
