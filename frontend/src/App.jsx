@@ -25,6 +25,16 @@ function App() {
     });
   };
 
+  // Handle logout
+  const handleLogout = () => {
+    // Clear localStorage
+    localStorage.removeItem('chatData');
+    // Clear the data in state
+    setData(null);
+    // Reload the page
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       {!data ? (
@@ -34,23 +44,27 @@ function App() {
         </div>
       ) : (
         <div className="container custom-container mx-auto px-4 py-6">
-          <div className="containers">
+          <div className="containers flex justify-end">
             <h1 className="title">WhatsApp Chat Analysis</h1>
             <FileUpload onData={handleFileUpload} />
+            {/* Wrap the button in a flex container aligned to the end */}
+            <div className="logout">
+      <button 
+        className="file-logout" 
+        onClick={handleLogout}>
+        Logout
+      </button>
+    </div>
           </div>
           <GroupStats data={data.groupStats} />
           <div className="grid">
-                <Charts data={data.messagesPerDay} title="Messages Per Day" />
-                <TopContacts data={data.topContacts} />
-                {/* Span full row */}
-                {/* <div className="group-stats-span"> */}
-                    
-                {/* </div> */}
-                <EmojiChart data={data.emojiUsage} />
-                <Charts data={data.activeHours} title="Active Hours" />
-                </div>
-
+            <Charts data={data.messagesPerDay} title="Messages Per Day" />
+            <TopContacts data={data.topContacts} />
+            <EmojiChart data={data.emojiUsage} />
+            <Charts data={data.activeHours} title="Active Hours" />
+          </div>
         </div>
+        
       )}
     </div>
   );
